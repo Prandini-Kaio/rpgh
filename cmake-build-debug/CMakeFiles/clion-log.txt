@@ -1,4 +1,10 @@
-/home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/ninja/linux/ninja -G Ninja -S /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2 -B /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/cmake-build-debug
+C:\Users\Kaio\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4345.21\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\Kaio\Documents\rpgh -B C:\Users\Kaio\Documents\rpgh\cmake-build-debug
+-- The C compiler identification is GNU 11.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Users/Kaio/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/mingw/bin/gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/cmake-build-debug
+-- Build files have been written to: C:/Users/Kaio/Documents/rpgh/cmake-build-debug

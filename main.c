@@ -3,12 +3,15 @@
 
 TableList tableList;
 Table currentTable;
+Section currentSection;
 
-int inTable = 0;
+int inTable = 0, inSection = 0;
 
 void CriarMesa();
 void EntrarNaMesa();
 void NaMesa();
+void NaSecao();
+
 void ClearScr();
 
 int main() {
@@ -100,7 +103,9 @@ void NaMesa(){
                 i++;
                 int succes = InsertInSectionList(&currentTable.sectionList, section);
                 if(succes) printf("Sucesso em abrir secao");
-                //ShowSectionList(currentTable.sectionList);
+                currentSection = section;
+                inSection = 1;
+                NaSecao();
                 ClearScr();
                 break;
             case 2:
@@ -112,6 +117,15 @@ void NaMesa(){
         }
         ShowSectionList(currentTable.sectionList);
     } while (inTable);
+}
+
+void NaSecao(){
+    ClearScr();
+    do {
+        getchar();
+        printf("\nSecao - %d\n", currentSection.index);
+        scanf("%*c");
+    } while (inSection);
 }
 
 void ClearScr(void) {
