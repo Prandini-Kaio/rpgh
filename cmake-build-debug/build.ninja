@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: rpg2
-# Configurations: Debug
+# Configurations: Release
 # =============================================================================
 
 #############################################
@@ -24,7 +24,7 @@ ninja_required_version = 1.5
 #############################################
 # Set configuration variable for custom commands.
 
-CONFIGURATION = Debug
+CONFIGURATION = Release
 # =============================================================================
 # Include auxiliary files.
 
@@ -41,31 +41,124 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/cmake-build-debug/
 # =============================================================================
+# Object build statements for STATIC_LIBRARY target myprjlib
+
+
+#############################################
+# Order-only phony target for myprjlib
+
+build cmake_object_order_depends_target_myprjlib: phony || CMakeFiles/myprjlib.dir
+
+build CMakeFiles/myprjlib.dir/lib/dbconnect.c.o: C_COMPILER__myprjlib_Release /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/lib/dbconnect.c || cmake_object_order_depends_target_myprjlib
+  DEFINES = -DHAVE_CURSES -DHAVE_SQL
+  DEP_FILE = CMakeFiles/myprjlib.dir/lib/dbconnect.c.o.d
+  FLAGS = -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native  -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native -O3 -std=gnu11
+  INCLUDES = -I/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/include -I/usr/include/mysql
+  OBJECT_DIR = CMakeFiles/myprjlib.dir
+  OBJECT_FILE_DIR = CMakeFiles/myprjlib.dir/lib
+
+build CMakeFiles/myprjlib.dir/lib/mesa.c.o: C_COMPILER__myprjlib_Release /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/lib/mesa.c || cmake_object_order_depends_target_myprjlib
+  DEFINES = -DHAVE_CURSES -DHAVE_SQL
+  DEP_FILE = CMakeFiles/myprjlib.dir/lib/mesa.c.o.d
+  FLAGS = -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native  -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native -O3 -std=gnu11
+  INCLUDES = -I/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/include -I/usr/include/mysql
+  OBJECT_DIR = CMakeFiles/myprjlib.dir
+  OBJECT_FILE_DIR = CMakeFiles/myprjlib.dir/lib
+
+build CMakeFiles/myprjlib.dir/lib/section.c.o: C_COMPILER__myprjlib_Release /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/lib/section.c || cmake_object_order_depends_target_myprjlib
+  DEFINES = -DHAVE_CURSES -DHAVE_SQL
+  DEP_FILE = CMakeFiles/myprjlib.dir/lib/section.c.o.d
+  FLAGS = -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native  -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native -O3 -std=gnu11
+  INCLUDES = -I/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/include -I/usr/include/mysql
+  OBJECT_DIR = CMakeFiles/myprjlib.dir
+  OBJECT_FILE_DIR = CMakeFiles/myprjlib.dir/lib
+
+build CMakeFiles/myprjlib.dir/lib/ocupacao.c.o: C_COMPILER__myprjlib_Release /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/lib/ocupacao.c || cmake_object_order_depends_target_myprjlib
+  DEFINES = -DHAVE_CURSES -DHAVE_SQL
+  DEP_FILE = CMakeFiles/myprjlib.dir/lib/ocupacao.c.o.d
+  FLAGS = -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native  -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native -O3 -std=gnu11
+  INCLUDES = -I/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/include -I/usr/include/mysql
+  OBJECT_DIR = CMakeFiles/myprjlib.dir
+  OBJECT_FILE_DIR = CMakeFiles/myprjlib.dir/lib
+
+build CMakeFiles/myprjlib.dir/lib/pericias.c.o: C_COMPILER__myprjlib_Release /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/lib/pericias.c || cmake_object_order_depends_target_myprjlib
+  DEFINES = -DHAVE_CURSES -DHAVE_SQL
+  DEP_FILE = CMakeFiles/myprjlib.dir/lib/pericias.c.o.d
+  FLAGS = -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native  -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native -O3 -std=gnu11
+  INCLUDES = -I/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/include -I/usr/include/mysql
+  OBJECT_DIR = CMakeFiles/myprjlib.dir
+  OBJECT_FILE_DIR = CMakeFiles/myprjlib.dir/lib
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target myprjlib
+
+
+#############################################
+# Link the static library lib/libmyprjlib.a
+
+build lib/libmyprjlib.a: C_STATIC_LIBRARY_LINKER__myprjlib_Release CMakeFiles/myprjlib.dir/lib/dbconnect.c.o CMakeFiles/myprjlib.dir/lib/mesa.c.o CMakeFiles/myprjlib.dir/lib/section.c.o CMakeFiles/myprjlib.dir/lib/ocupacao.c.o CMakeFiles/myprjlib.dir/lib/pericias.c.o
+  LANGUAGE_COMPILE_FLAGS = -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native  -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native -O3
+  OBJECT_DIR = CMakeFiles/myprjlib.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libmyprjlib.a
+  TARGET_PDB = myprjlib.a.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target rpg2
 
 
 #############################################
 # Order-only phony target for rpg2
 
-build cmake_object_order_depends_target_rpg2: phony || CMakeFiles/rpg2.dir
+build cmake_object_order_depends_target_rpg2: phony || cmake_object_order_depends_target_myprjlib cmake_object_order_depends_target_sqlprjlib
 
+<<<<<<< HEAD
 build CMakeFiles/rpg2.dir/main.c.o: C_COMPILER__rpg2_Debug /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/main.c || cmake_object_order_depends_target_rpg2
   DEP_FILE = CMakeFiles/rpg2.dir/main.c.o.d
   FLAGS = -g -std=gnu99
   OBJECT_DIR = CMakeFiles/rpg2.dir
   OBJECT_FILE_DIR = CMakeFiles/rpg2.dir
+  TARGET_COMPILE_PDB = CMakeFiles/rpg2.dir/
+  TARGET_PDB = rpg2.pdb
 
 build CMakeFiles/rpg2.dir/src/mesa.c.o: C_COMPILER__rpg2_Debug /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/src/mesa.c || cmake_object_order_depends_target_rpg2
   DEP_FILE = CMakeFiles/rpg2.dir/src/mesa.c.o.d
   FLAGS = -g -std=gnu99
+=======
+build CMakeFiles/rpg2.dir/src/principal.c.o: C_COMPILER__rpg2_Release /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/src/principal.c || cmake_object_order_depends_target_rpg2
+  DEFINES = -DHAVE_CURSES -DHAVE_SQL
+  DEP_FILE = CMakeFiles/rpg2.dir/src/principal.c.o.d
+  FLAGS = -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native  -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native -O3 -std=gnu11
+  INCLUDES = -I/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/include -I/usr/include/mysql
+>>>>>>> 41fd4f3 (Varias alterações, adicao de funcoes do banco de dados, ficha e etc.)
   OBJECT_DIR = CMakeFiles/rpg2.dir
   OBJECT_FILE_DIR = CMakeFiles/rpg2.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/rpg2.dir/
+  TARGET_PDB = rpg2.pdb
 
-build CMakeFiles/rpg2.dir/src/section.c.o: C_COMPILER__rpg2_Debug /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/src/section.c || cmake_object_order_depends_target_rpg2
-  DEP_FILE = CMakeFiles/rpg2.dir/src/section.c.o.d
+build CMakeFiles/rpg2.dir/lib/ficha.c.o: C_COMPILER__rpg2_Release /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/lib/ficha.c || cmake_object_order_depends_target_rpg2
+  DEFINES = -DHAVE_CURSES -DHAVE_SQL
+  DEP_FILE = CMakeFiles/rpg2.dir/lib/ficha.c.o.d
+  FLAGS = -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native  -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native -O3 -std=gnu11
+  INCLUDES = -I/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/include -I/usr/include/mysql
+  OBJECT_DIR = CMakeFiles/rpg2.dir
+<<<<<<< HEAD
+  OBJECT_FILE_DIR = CMakeFiles/rpg2.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/rpg2.dir/
+  TARGET_PDB = rpg2.pdb
+
+build CMakeFiles/rpg2.dir/src/dbconnect.c.o: C_COMPILER__rpg2_Debug /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/src/dbconnect.c || cmake_object_order_depends_target_rpg2
+  DEP_FILE = CMakeFiles/rpg2.dir/src/dbconnect.c.o.d
   FLAGS = -g -std=gnu99
   OBJECT_DIR = CMakeFiles/rpg2.dir
   OBJECT_FILE_DIR = CMakeFiles/rpg2.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/rpg2.dir/
+  TARGET_PDB = rpg2.pdb
+=======
+  OBJECT_FILE_DIR = CMakeFiles/rpg2.dir/lib
+>>>>>>> 41fd4f3 (Varias alterações, adicao de funcoes do banco de dados, ficha e etc.)
 
 
 # =============================================================================
@@ -73,15 +166,56 @@ build CMakeFiles/rpg2.dir/src/section.c.o: C_COMPILER__rpg2_Debug /home/kaio/Doc
 
 
 #############################################
-# Link the executable rpg2
+# Link the executable bin/rpg2
 
-build rpg2: C_EXECUTABLE_LINKER__rpg2_Debug CMakeFiles/rpg2.dir/main.c.o CMakeFiles/rpg2.dir/src/mesa.c.o CMakeFiles/rpg2.dir/src/section.c.o
-  FLAGS = -g
+build bin/rpg2: C_EXECUTABLE_LINKER__rpg2_Release CMakeFiles/rpg2.dir/src/principal.c.o CMakeFiles/rpg2.dir/lib/ficha.c.o | lib/libmyprjlib.a lib/libsqlprjlib.a /usr/lib/x86_64-linux-gnu/libcurses.so || lib/libmyprjlib.a lib/libsqlprjlib.a
+  FLAGS = -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native  -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native -O3
+  LINK_LIBRARIES = -Wl,-rpath,/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/lib  lib/libmyprjlib.a  -lssl  -lcrypto  lib/libsqlprjlib.a  -lcurses  -lmysqlclient
+  LINK_PATH = -L/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/lib
   OBJECT_DIR = CMakeFiles/rpg2.dir
   POST_BUILD = :
   PRE_LINK = :
+<<<<<<< HEAD
+  TARGET_COMPILE_PDB = CMakeFiles/rpg2.dir/
   TARGET_FILE = rpg2
+  TARGET_PDB = rpg2.pdb
+=======
+  TARGET_FILE = bin/rpg2
   TARGET_PDB = rpg2.dbg
+>>>>>>> 41fd4f3 (Varias alterações, adicao de funcoes do banco de dados, ficha e etc.)
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target sqlprjlib
+
+
+#############################################
+# Order-only phony target for sqlprjlib
+
+build cmake_object_order_depends_target_sqlprjlib: phony || CMakeFiles/sqlprjlib.dir
+
+build CMakeFiles/sqlprjlib.dir/lib/helloSQL.c.o: C_COMPILER__sqlprjlib_Release /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/lib/helloSQL.c || cmake_object_order_depends_target_sqlprjlib
+  DEFINES = -DHAVE_CURSES -DHAVE_SQL
+  DEP_FILE = CMakeFiles/sqlprjlib.dir/lib/helloSQL.c.o.d
+  FLAGS = -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native  -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native -O3 -std=gnu11
+  INCLUDES = -I/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/include -I/usr/include/mysql
+  OBJECT_DIR = CMakeFiles/sqlprjlib.dir
+  OBJECT_FILE_DIR = CMakeFiles/sqlprjlib.dir/lib
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target sqlprjlib
+
+
+#############################################
+# Link the static library lib/libsqlprjlib.a
+
+build lib/libsqlprjlib.a: C_STATIC_LIBRARY_LINKER__sqlprjlib_Release CMakeFiles/sqlprjlib.dir/lib/helloSQL.c.o
+  LANGUAGE_COMPILE_FLAGS = -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native  -W -Wall -Wextra -Wunused -std=c11 -fno-omit-frame-pointer -march=native -O3
+  OBJECT_DIR = CMakeFiles/sqlprjlib.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libsqlprjlib.a
+  TARGET_PDB = sqlprjlib.a.dbg
 
 
 #############################################
@@ -110,6 +244,16 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build libmyprjlib.a: phony lib/libmyprjlib.a
+
+build libsqlprjlib.a: phony lib/libsqlprjlib.a
+
+build myprjlib: phony lib/libmyprjlib.a
+
+build rpg2: phony bin/rpg2
+
+build sqlprjlib: phony lib/libsqlprjlib.a
+
 # =============================================================================
 # Folder targets.
 
@@ -118,7 +262,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/cmake-build-debug
 
-build all: phony rpg2
+build all: phony lib/libmyprjlib.a bin/rpg2 lib/libsqlprjlib.a
 
 # =============================================================================
 # Built-in targets
@@ -127,14 +271,22 @@ build all: phony rpg2
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-C.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU-C.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+<<<<<<< HEAD
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCCompiler.cmake.in /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCCompilerABI.c /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCompilerIdDetection.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompileFeatures.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompilerABI.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompilerId.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineSystem.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeFindBinUtils.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeParseImplicitIncludeInfo.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeParseImplicitLinkInfo.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeParseLibraryArchitecture.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystem.cmake.in /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeTestCCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeTestCompilerCommon.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/ADSP-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/ARMCC-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/ARMClang-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/AppleClang-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Borland-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Clang-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Cray-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GHS-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-C.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-FindBinUtils.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/HP-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IAR-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Intel-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/LCC-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/MSVC-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/NVHPC-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/PGI-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/PathScale-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/SCO-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/TI-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Watcom-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/XL-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/zOS-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Internal/FeatureTesting.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU-C.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+=======
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CheckLibraryExists.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Clang-CXX.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Clang.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-C.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/FindCurses.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/FindPackageMessage.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/FindPkgConfig.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/GNUInstallDirs.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-Clang-CXX.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU-C.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU-CXX.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+>>>>>>> 41fd4f3 (Varias alterações, adicao de funcoes do banco de dados, ficha e etc.)
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-C.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU-C.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+<<<<<<< HEAD
+build ../CMakeLists.txt /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCCompiler.cmake.in /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCCompilerABI.c /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCompilerIdDetection.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompileFeatures.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompilerABI.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineCompilerId.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeDetermineSystem.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeFindBinUtils.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeParseImplicitIncludeInfo.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeParseImplicitLinkInfo.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeParseLibraryArchitecture.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystem.cmake.in /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeTestCCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeTestCompilerCommon.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/ADSP-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/ARMCC-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/ARMClang-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/AppleClang-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Borland-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Clang-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Cray-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GHS-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-C.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-FindBinUtils.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/HP-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IAR-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Intel-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/LCC-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/MSVC-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/NVHPC-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/PGI-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/PathScale-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/SCO-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/TI-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Watcom-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/XL-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/zOS-C-DetermineCompiler.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Internal/FeatureTesting.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU-C.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+=======
+build ../CMakeLists.txt /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/CheckLibraryExists.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Clang-CXX.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/Clang.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU-C.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Compiler/GNU.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/FindCurses.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/FindPackageMessage.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/FindPkgConfig.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/GNUInstallDirs.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-Clang-CXX.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU-C.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU-CXX.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux-GNU.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/Linux.cmake /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+>>>>>>> 41fd4f3 (Varias alterações, adicao de funcoes do banco de dados, ficha e etc.)
 
 
 #############################################

@@ -1,3 +1,5 @@
-C:/Users/Kaio/Documents/rpgh/cmake-build-debug/CMakeFiles/rpg2.dir
-C:/Users/Kaio/Documents/rpgh/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Kaio/Documents/rpgh/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/cmake-build-debug/CMakeFiles/myprjlib.dir
+/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/cmake-build-debug/CMakeFiles/rpg2.dir
+/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/cmake-build-debug/CMakeFiles/sqlprjlib.dir
+/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
