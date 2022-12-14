@@ -1,23 +1,11 @@
 # ninja log v5
-0	40	1669980556946978852	CMakeFiles/rpg2.dir/main.c.o	514e8185bdfb630c
-<<<<<<< HEAD
-1	40	1669980556946978852	CMakeFiles/rpg2.dir/src/dbconnect.c.o	d44e1a3844ef94c5
-0	34	1670766259454397768	build.ninja	2ef5a33a42643bda
-1	40	1669980556950978869	CMakeFiles/rpg2.dir/src/section.c.o	a05245bc1b6cf937
-0	26	1669923281788007431	CMakeFiles/rpg2.dir/src/mesa.c.o	b1692b619f88135e
-21	37	1669923312849738080	rpg2	86c788ec2550ede2
-=======
 1	333	1670520052141793163	CMakeFiles/sqlprjlib.dir/lib/helloSQL.c.o	11051d08621a4a34
 62	189	1670520147948125489	bin/rpg2	b20da97ce08761af
-1	40	1669980556946978852	CMakeFiles/rpg2.dir/src/dbconnect.c.o	d44e1a3844ef94c5
 1	54	1670520147816122275	CMakeFiles/rpg2.dir/src/principal.c.o	a9c3d5ac22cf49e8
 0	87	1670520123375527289	CMakeFiles/myprjlib.dir/lib/mesa.c.o	f19363aa92be1fa8
-0	39	1670590916525049377	build.ninja	2ef5a33a42643bda
-1	40	1669980556950978869	CMakeFiles/rpg2.dir/src/section.c.o	a05245bc1b6cf937
-0	26	1669923281788007431	CMakeFiles/rpg2.dir/src/mesa.c.o	b1692b619f88135e
+0	39	1671058982354741990	build.ninja	2ef5a33a42643bda
 21	37	1669923312849738080	rpg2	86c788ec2550ede2
 2	42	1670520058181940206	lib/libsqlprjlib.a	a8ea2fd87316732a
 1	62	1670520147820122373	lib/libmyprjlib.a	82ded789dfa93876
 0	92	1670520123379527387	CMakeFiles/myprjlib.dir/lib/section.c.o	1250b9e9ad75a72
 0	36	1670520123323526024	CMakeFiles/myprjlib.dir/lib/dbconnect.c.o	d5d1a88bbcaa3f1c
->>>>>>> 41fd4f3 (Varias alterações, adicao de funcoes do banco de dados, ficha e etc.)

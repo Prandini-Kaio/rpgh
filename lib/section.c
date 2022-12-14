@@ -36,9 +36,11 @@ int InsertInSectionList(SectionList *sectionList, Section section){
 
 void ShowSectionList(SectionList sectionList){
     struct NoSection *aux;
-    if(sectionList.start == NULL) printf("LISTA VAZIA");
+    if(sectionList.start == NULL) {
+        printf("\nLISTA VAZIA\n");
+        return;
+    }
     aux = sectionList.start;
-
     do {
         printf("\n--------------------SECTION %d--------------------\n", aux->section.numberSec);
         printf("Open In: %s\n", aux->section.openDate);
@@ -91,8 +93,6 @@ int CreateSectionDB(MYSQL *conn){
         FinishWithErrors(conn);
         return 0;
     }
-
-    printf("Table Created\n");
     FinishWithErrors(conn);
     return 1;
 }
@@ -120,7 +120,7 @@ int InsertSectionDB(MYSQL *conn, Section *section){
 
     section->id = mysql_insert_id(conn);
 
-    printf("Inseridos: %d\n", mysql_affected_rows(conn));
+    printf("Inseridos: %d\n", (int)mysql_affected_rows(conn));
     FinishWithErrors(conn);
     return 1;
 }
@@ -188,8 +188,8 @@ int SetSection(MYSQL *conn, Section section){
     char query[200];
     sprintf(query, "UPDATE section SET IDTable = %d, IDanotation = %d, openDate = '%s', closeDate = '%s' WHERE ID = %d",
             section.idTable, section.idAnotation,
-            asctime(localtime(&section.openDate)),
-            asctime(localtime(&section.closeDate)), section.id);
+            asctime(localtime((long *)&section.openDate)),
+            asctime(localtime((long *)&section.closeDate)), section.id);
 
 
     int res = mysql_query(conn, query);
@@ -197,7 +197,7 @@ int SetSection(MYSQL *conn, Section section){
     if(res)
         FinishWithErrors(conn);
 
-    printf("Atualizados: %d\n", mysql_affected_rows(conn));
+    printf("Atualizados: %d\n", (int)mysql_affected_rows(conn));
     return 1;
 }
 //
@@ -230,33 +230,24 @@ int GetLastSectionID(MYSQL *conn, int IDTable){
         FinishWithErrors(conn);
         return 0;
     }
-
-    //Numero de titulos da tabela
-    int num_fields = mysql_num_fields(res);
-
     //Armazena as colunas da tabela
     MYSQL_ROW row;
 
     int tmp = 0;
 
     //Percorre todas as rows retornadas no resultado
-    here:
     while ((row = mysql_fetch_row(res)))
     {
         if(tmp < atoi(row[1]))
             tmp = atoi(row[1]);
     }
-    printf("TMP: %d\n", tmp);
-    scanf("%*c");
-    getchar();
-    return tmp;
-
     mysql_free_result(res);
     FinishWithErrors(conn);
-    return 1;
+    return tmp;
 }
 
 int PopulateSectionList(MYSQL *conn, SectionList *sectionList, int tableID){
+    CreateSectionDB(conn);
     CreateSectionList(sectionList);
     //Ler os dados do BD e popular a lista
     conn = mysql_init(NULL);
@@ -279,7 +270,6 @@ int PopulateSectionList(MYSQL *conn, SectionList *sectionList, int tableID){
 
     if(!res)//Se nao obtiver dados no retorno
     {
-        printf("EMPTY TABLE\n");
         FinishWithErrors(conn);
         return 0;
     }

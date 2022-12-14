@@ -1,15 +1,34 @@
 #ifndef RPG2_OCUPACAO_H
 #define RPG2_OCUPACAO_H
-enum ocp{
-    Antiquario, Artista, Jornalista, Missionario
-}ocp;
+#include <stdio.h>
+#include <string.h>
+#include <mysql/mysql.h>
+#include "dbconnect.h"
+typedef struct {
+    int ID;
+    char name[100];
+    int minCreditLevel;
+    int maxCreditLevel;
+}Ocupation;
 
-typedef struct{
-    enum ocp ocupation;
-    //Lista De Pericias permitidas
-    int creditLevel;
-    int ocupationalPoints;
-}ocupation;
+struct NoOcupation{
+    struct NoOcupation *next;
+    Ocupation ocupation;
+    struct NoOcupation *prev;
+};
 
-int CreateOcupation(ocupation *ocupation, enum ocp, int credit, int ocupationPoints);
+typedef struct {
+    struct NoOcupation *start;
+    struct NoOcupation *end;
+}OcupationList;
+
+void CreateOcupationList(OcupationList *ocupationList);
+int InsertInOcupationList(OcupationList *ocupationList, Ocupation ocupation);
+void ShowOcupationList(OcupationList ocupationList);
+
+int CreateOcupation(MYSQL *conn, Ocupation *ocupation);
+
+int LoadOcupation(MYSQL *connection, OcupationList *ocupationList);
+int CreateOcupationDB(MYSQL *connection);
+int InsertOcupationDB(MYSQL *connection, Ocupation ocupation);
 #endif //RPG2_OCUPACAO_H

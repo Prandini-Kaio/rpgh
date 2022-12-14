@@ -70,12 +70,12 @@ endif()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-add_library(myprjlib STATIC lib/dbconnect.c lib/mesa.c lib/section.c lib/ocupacao.c lib/pericias.c)
+add_library(myprjlib STATIC lib/dbconnect.c lib/mesa.c lib/section.c lib/ocupacao.c)
 
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
 
-set(SOURCES src/principal.c lib/ficha.c include/ficha.h include/ocupacao.h include/pericias.h)
+set(SOURCES src/principal.c lib/ficha.c include/ficha.h include/ocupacao.h lib/screens/mesasScreen.c lib/screens/screens.c lib/screens/secaoScreen.c)
 
 # Dependences
 # SQL

@@ -4,6 +4,7 @@
 #include <time.h>
 #include <mysql/mysql.h>
 #include "section.h"
+#include "ocupacao.h"
 
 typedef struct{
     int id;
@@ -33,14 +34,12 @@ int InsertInTableList(TableList *, Table);
 void ShowTableList(TableList);
 Table *GetTableById(TableList, int);
 
-int CreateTable(MYSQL *, Table *, char[], char[],int);
+int CreateTable(MYSQL *, Table *, char[], char[]);
 
 //Database
 int CreateTableDB(MYSQL *);
 
-int InsertTableDB(MYSQL *connection, Table *table);
-int GetTableDB(MYSQL *connection);
-int SetTableDB(MYSQL *connection, Table table);
+int InsertTableDB(MYSQL *, Table *table);
 
-int PopulateTableList(MYSQL *connection, TableList *tableList);
+int LoadTableList(MYSQL *, TableList *tableList);
 #endif //RPG2_MESA_H

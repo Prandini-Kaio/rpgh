@@ -1,10 +1,8 @@
-#include "stdio.h"
-#include <malloc.h>
+#include <stdio.h>
 #include <time.h>
 #include <string.h>
 
 #include "../include/mesa.h"
-#include "../include/dbconnect.h"
 
 /*
  * Lista De Mesas
@@ -78,9 +76,10 @@ Table *GetTableById(TableList tableList, int id){
         aux = aux->next;
     } while (aux != tableList.start);
     printf("\nTABLE NOT EXISTS\n");
+    return &aux->table;
 }
 
-int CreateTable(MYSQL *conn, Table *table, char masterName[100], char title[100], int lastID){
+int CreateTable(MYSQL *conn, Table *table, char masterName[100], char title[100]){
     CreateTableDB(conn);
 
     time_t t = time(NULL);
@@ -142,91 +141,22 @@ int InsertTableDB(MYSQL *conn, Table *table){
 
     char query[200];
     sprintf(query, "INSERT INTO mesa(ID, title, masterName, openDate, sheetsID, sectionsID) VALUES(0, '%s', '%s', '%s', %d, %d)",
-            table->title, table->masterName, table->openDate, table->sheetsID, table->sectionList);
+            table->title, table->masterName, table->openDate, table->sheetsID, table->sectionsID);
 
     int res = mysql_query(conn, query);
 
     if(res)
         FinishWithErrors(conn);
 
-    table->id = mysql_insert_id(conn);
+    table->id = (int)mysql_insert_id(conn);
 
-    printf("Mesas inseridas: %d\n", mysql_affected_rows(conn));
+    printf("Mesas inseridas: %d\n", (int)mysql_affected_rows(conn));
     FinishWithErrors(conn);
     return 1;
 }
 
-int GetTableDB(MYSQL *conn){
-    conn = mysql_init(NULL);
-    if (conn == NULL) {
-        FinishWithErrors(conn);
-        return 0;
-    }
 
-    if (mysql_real_connect(conn, SERVER, USERNAME, PASS, DB, 0, NULL, 0) == NULL) {
-        FinishWithErrors(conn);
-        return 0;
-    }
-
-    if(mysql_query(conn, "SELECT * from mesa")){
-        FinishWithErrors(conn);
-        return 0;
-    }
-
-    MYSQL_RES *res = mysql_store_result(conn);
-
-    if(!res){
-        printf("EMPTY TABLE\n");
-        FinishWithErrors(conn);
-        return 0;
-    }
-
-    int num_fields = mysql_num_fields(res);
-
-    MYSQL_ROW row;
-
-    printf("\n----------------------------------------\n");
-    //Percorre todas as rows retornadas no resultado
-    while ((row = mysql_fetch_row(res)))
-    {
-        for(int i = 0; i < num_fields; i++)
-        {
-            printf(" %s ", row[i] ? row[i] : "NULL");
-        }
-        printf("\n--------------------/-------------------\n");
-    }
-
-    mysql_free_result(res);
-    FinishWithErrors(conn);
-    return 1;
-}
-
-int SetTableDB(MYSQL *conn, Table table){
-    conn = mysql_init(NULL);
-    if (conn == NULL) {
-        FinishWithErrors(conn);
-        return 0;
-    }
-
-    if (mysql_real_connect(conn, SERVER, USERNAME, PASS, DB, 0, NULL, 0) == NULL) {
-        FinishWithErrors(conn);
-        return 0;
-    }
-
-    char query[100];
-    sprintf(query, "UPDATE section SET title = '%s', masterName = '%s', openDate = '%s', sheetsID = %d, sectionsID = %d WHERE ID = %d",
-            table.title, table.masterName, table.openDate, table.sheetsID, table.sectionList, table.id);
-
-    int res = mysql_query(conn, query);
-
-    if(res)
-        FinishWithErrors(conn);
-
-    printf("Mesas atualizadas: %d\n", mysql_affected_rows(conn));
-    return 1;
-}
-
-int PopulateTableList(MYSQL *conn, TableList *tableList){
+int LoadTableList(MYSQL *conn, TableList *tableList){
     CreateTableList(tableList);
 
     //Ler os dados do BD e popular a lista

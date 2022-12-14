@@ -1,17 +1,10 @@
 #include <stdio.h>
-#include <mysql/mysql.h>
 #include "../include/mesa.h"
-#ifdef HAVE_SQL
-#include "hellosql.h"
-#endif
-
-TableList tableList;
-Table *currentTable;
 
 MYSQL *conn;
 
-int inTable = 0;
-int inSection = 0;
+TableList tableList;
+Table *currentTable;
 
 void CriarMesa();
 void EntrarNaMesa();
@@ -20,14 +13,12 @@ void NaSecao();
 
 void ClearScr();
 
+int inTable = 0;
+int inSection = 0;
+
 int main() {
     char op;
-    CreateTableList(&tableList);
-
-    PopulateTableList(conn, &tableList);
-
     do {
-        ClearScr();
         printf("\nBem vindo\n");
         getchar();
         printf("O que deseja fazer?\n"
@@ -38,10 +29,10 @@ int main() {
         switch (op) {
             case '1':
                 fflush(stdin);
-                CriarMesa();
+                CriarMesa(conn, &tableList, currentTable);
                 break;
             case '2':
-                EntrarNaMesa();
+                EntrarNaMesa(conn, tableList, currentTable);
                 break;
             case '3':
                 printf("Finalizando...\n");
@@ -54,33 +45,30 @@ int main() {
 
     return 0;
 }
-
 void CriarMesa(){
     ClearScr();
-    char *nome[100];
+    char nome[100];
     char title[100];
     printf("\n--------------------Criar uma nova mesa--------------------\n");
     getchar();
     printf("                      Qual o nome do mestre                  \n");
-    scanf("%[^\n]", &nome);
+    scanf("%[^\n]", nome);
     getchar();
     printf("                      Qual o nome da mesa?                   \n");
-    scanf("%[^\n]", &title);
+    scanf("%[^\n]", title);
     printf("\n-----------------------------------------------------------\n");
 
-    Table tb;
+    CreateSectionList(&currentTable->sectionList);
 
-    SectionList sectionList;
-    CreateSectionList(&sectionList);
-
-    CreateTable(conn, &tb, nome, title, 0);
-    PopulateTableList(conn, &tableList);
+    CreateTable(conn, currentTable, nome, title);
+    LoadTableList(conn, &tableList);
     ClearScr();
 }
 
 void EntrarNaMesa(){
     ClearScr();
     // O ID da mesa em que quero entrar
+    LoadTableList(conn, &tableList);
     int mesaID;
     printf("\n-----------------------------------------------------------\n");
     printf("Qual mesa deseja entrar?\n");
@@ -89,8 +77,7 @@ void EntrarNaMesa(){
     printf("\n-----------------------------------------------------------\n");
     currentTable = GetTableById(tableList, mesaID);
     //Variavel que define que estamos "Jogando" a mesa
-    inTable = 1;
-    NaMesa();
+    NaMesa(conn, currentTable);
 }
 
 void NaMesa(){
@@ -110,7 +97,6 @@ void NaMesa(){
             case 1:
                 CreateSection(conn, &section, currentTable->id);
                 PopulateSectionList(conn, &currentTable->sectionList, currentTable->id);
-                inSection = 1;
                 NaSecao();
                 ClearScr();
                 break;
@@ -133,7 +119,7 @@ void NaSecao(){
     int op;
     printf("\nSecao aberta\n");
     do{
-        printf("1 - Alterar Ficha\n");
+        printf("1 - Alterar Ficha\n2 - Voltar\n");
         scanf("%d", &op);
 
         switch (op) {
@@ -143,6 +129,8 @@ void NaSecao(){
             case 2:
                 inSection = 0;
                 break;
+            default:
+                printf("Opcao Invalida\n");
         }
     } while (inSection);
 }
@@ -150,9 +138,4 @@ void NaSecao(){
 void ClearScr(void) {
     printf("\033c");
     printf("\033[H\033[J");
-    return;
 }
-
-#ifdef HAVE_SQL
-helloSQL();
-#endif

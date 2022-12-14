@@ -1,5 +1,6 @@
 #ifndef RPG2_FICHA_H
 #define RPG2_FICHA_H
+#include "ocupacao.h"
 
 typedef struct{
     int id;
@@ -7,7 +8,7 @@ typedef struct{
     //atributos
     char playerName[100];
     char investigatorName[100];
-    //Ocupacao
+    Ocupation ocupation;
     int age;
     int sex;
     //Pericias
