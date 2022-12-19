@@ -26,9 +26,8 @@ void CreateOcupationList(OcupationList *ocupationList);
 int InsertInOcupationList(OcupationList *ocupationList, Ocupation ocupation);
 void ShowOcupationList(OcupationList ocupationList);
 
-int CreateOcupation(MYSQL *conn, Ocupation *ocupation);
+Ocupation GetOcupationByID(MYSQL *, int);
 
 int LoadOcupation(MYSQL *connection, OcupationList *ocupationList);
 int CreateOcupationDB(MYSQL *connection);
-int InsertOcupationDB(MYSQL *connection, Ocupation ocupation);
 #endif //RPG2_OCUPACAO_H

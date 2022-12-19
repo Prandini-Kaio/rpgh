@@ -4,12 +4,18 @@
 MYSQL *conn;
 
 TableList tableList;
-Table *currentTable;
+Table currentTable;
+
+OcupationList ocupationList;
 
 void CriarMesa();
 void EntrarNaMesa();
 void NaMesa();
+
 void NaSecao();
+
+void CriarFicha();
+void AlterarFicha();
 
 void ClearScr();
 
@@ -29,10 +35,10 @@ int main() {
         switch (op) {
             case '1':
                 fflush(stdin);
-                CriarMesa(conn, &tableList, currentTable);
+                CriarMesa();
                 break;
             case '2':
-                EntrarNaMesa(conn, tableList, currentTable);
+                EntrarNaMesa();
                 break;
             case '3':
                 printf("Finalizando...\n");
@@ -58,9 +64,7 @@ void CriarMesa(){
     scanf("%[^\n]", title);
     printf("\n-----------------------------------------------------------\n");
 
-    CreateSectionList(&currentTable->sectionList);
-
-    CreateTable(conn, currentTable, nome, title);
+    CreateTable(conn, &currentTable, nome, title);
     LoadTableList(conn, &tableList);
     ClearScr();
 }
@@ -76,33 +80,43 @@ void EntrarNaMesa(){
     scanf("%d", &mesaID);
     printf("\n-----------------------------------------------------------\n");
     currentTable = GetTableById(tableList, mesaID);
-    //Variavel que define que estamos "Jogando" a mesa
-    NaMesa(conn, currentTable);
+    NaMesa();
 }
 
 void NaMesa(){
     ClearScr();
     int op;
     Section section;
+
+    inTable = 1;
+
     do{
-        PopulateSectionList(conn, &currentTable->sectionList, currentTable->id);
+        LoadSectionList(conn, &currentTable.sectionList, currentTable.id);
         printf("\n\n-----------------------------------------------------------\n\n");
-        printf("\nBem vindo %s - %s\n", currentTable->masterName, currentTable->title);
+        printf("\nBem vindo %s - %s\n", currentTable.masterName, currentTable.title);
         printf("\nO que deseja fazer?\n"
-               "1 - Iniciar uma nova secao\n2 - Ver secoes\n3 - Voltar\n");
+               "1 - Iniciar uma secao\n2 - Ver secoes\n3 - Voltar\n");
         scanf("%d", &op);
         printf("\n\n-----------------------------------------------------------\n\n");
-
+        ClearScr();
         switch (op) {
             case 1:
-                CreateSection(conn, &section, currentTable->id);
-                PopulateSectionList(conn, &currentTable->sectionList, currentTable->id);
+                CreateSection(conn, &section, currentTable.id);
+                LoadSectionList(conn, &currentTable.sectionList, currentTable.id);
+                ShowSection(currentTable.sectionList, section.id);
+                getchar();
+                scanf("%*c");
                 NaSecao();
+                CloseSection(conn, &section);
                 ClearScr();
                 break;
             case 2:
-                PopulateSectionList(conn, &currentTable->sectionList, currentTable->id);
-                ShowSectionList(currentTable->sectionList);
+                LoadSectionList(conn, &currentTable.sectionList, currentTable.id);
+                ShowSectionList(currentTable.sectionList);
+                printf("\nPressione qualquer tecla...\n");
+                getchar();
+                scanf("%*c");
+                ClearScr();
                 break;
             case 3:
                 inTable = 0;
@@ -117,22 +131,90 @@ void NaMesa(){
 void NaSecao(){
     ClearScr();
     int op;
-    printf("\nSecao aberta\n");
+
+    inSection = 1;
+
     do{
-        printf("1 - Alterar Ficha\n2 - Voltar\n");
+        ClearScr();
+        printf("\nSecao aberta.. Aproveite!!\n");
+        printf("\n1 - Criar Ficha\n2 - Alterar Ficha\n3 - Sair\n");
         scanf("%d", &op);
 
         switch (op) {
             case 1:
-                printf("Alterar Ficha\n");
+                //Criar nova ficha
+                CriarFicha();
                 break;
             case 2:
+                AlterarFicha();
+                break;
+            case 3:
                 inSection = 0;
                 break;
             default:
                 printf("Opcao Invalida\n");
         }
     } while (inSection);
+}
+
+void CriarFicha(){
+    //Auxiliar
+    Sheet sheet;
+    int ocpID;
+
+    LoadOcupation(conn, &ocupationList);
+
+    printf("\n----------/----------\n");
+    printf("\nQual o nome do jogador?\n");
+    scanf("%s", sheet.playerName);
+    printf("\nQual o nome do investigador?\n");
+    scanf("%s", sheet.investigatorName);
+    printf("\nQual a idade do investigador?\n");
+    scanf("%d", &sheet.age);
+    printf("\nQual o sexo do investigador?(1 - Masculino 2 - Feminino)\n");
+    scanf("%d", &sheet.sex);
+    printf("\nQual a ocupacao do investigador?\n");
+    ShowOcupationList(ocupationList);
+    scanf("%d", &ocpID);
+    printf("\n----------/----------\n");
+
+    sheet.idTable = currentTable.id;
+    CreateSheet(conn, &sheet, ocpID);
+    LoadSheets(conn, &currentTable.sheetList, currentTable.id);
+    ShowSheetList(currentTable.sheetList);
+
+    printf("\n\nPressione qualquer tecla para continuar\n\n");
+    getchar();
+    scanf("%*c");
+}
+
+void AlterarFicha(){
+    //Auxiliar
+    Sheet sheet;
+    int ocpID;
+
+    LoadOcupation(conn, &ocupationList);
+
+    printf("\n----------/----------\n");
+    printf("\nQual o nome do jogador?\n");
+    scanf("%s", sheet.playerName);
+    printf("\nQual o nome do investigador?\n");
+    scanf("%s", sheet.investigatorName);
+    printf("\nQual a idade do investigador?\n");
+    scanf("%d", &sheet.age);
+    printf("\nQual o sexo do investigador?(1 - Masculino 2 - Feminino)\n");
+    scanf("%d", &sheet.sex);
+    printf("\nQual a ocupacao do investigador?\n");
+    ShowOcupationList(ocupationList);
+    scanf("%d", &ocpID);
+    printf("\n----------/----------\n");
+
+    sheet.idTable = currentTable.id;
+    SetSheetDB(conn, sheet);
+    LoadSheets(conn, &currentTable.sheetList, currentTable.id);
+    ShowSheetList(currentTable.sheetList);
+    getchar();
+    scanf("%*c");
 }
 
 void ClearScr(void) {

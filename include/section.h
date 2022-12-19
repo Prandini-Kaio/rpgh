@@ -35,6 +35,9 @@ typedef struct{
 void CreateSectionList(SectionList *);
 int InsertInSectionList(SectionList *, Section);
 void ShowSectionList(SectionList);
+void ShowSection(SectionList, int);
+
+void CloseSection(MYSQL *, Section *);
 
 //Section
 int CreateSection(MYSQL *, Section *, int);
@@ -42,9 +45,8 @@ int CreateSection(MYSQL *, Section *, int);
 //Database
 int CreateSectionDB(MYSQL *conn);
 int InsertSectionDB(MYSQL *conn, Section *section);
-int GetSection(MYSQL *);
-int SetSection(MYSQL *, Section);
+int SetSection(MYSQL *, Section *);
 
 int GetLastSectionID(MYSQL *, int tableID);
-int PopulateSectionList(MYSQL *, SectionList *, int);
+int LoadSectionList(MYSQL *conn, SectionList *sectionList, int tableID);
 #endif //RPG2_SECTION_H

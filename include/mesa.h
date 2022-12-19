@@ -4,6 +4,7 @@
 #include <time.h>
 #include <mysql/mysql.h>
 #include "section.h"
+#include "ficha.h"
 #include "ocupacao.h"
 
 typedef struct{
@@ -15,6 +16,7 @@ typedef struct{
     int sectionsID;
 
     SectionList sectionList;
+    SheetList sheetList;
 }Table;
 
 struct NoTable{
@@ -32,7 +34,7 @@ typedef struct {
 void CreateTableList(TableList *);
 int InsertInTableList(TableList *, Table);
 void ShowTableList(TableList);
-Table *GetTableById(TableList, int);
+Table GetTableById(TableList, int);
 
 int CreateTable(MYSQL *, Table *, char[], char[]);
 

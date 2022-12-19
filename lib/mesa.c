@@ -22,11 +22,13 @@
 //Criar uma lista de mesas
 //Adicionar uma mesa na lista
 
+//Criar a lista
 void CreateTableList(TableList *tableList){
     tableList->start = NULL;
     tableList->end = NULL;
 }
 
+//Inserir na lista
 int InsertInTableList(TableList *tableList, Table table){
     struct NoTable *aux;
     aux = (struct NoTable *)malloc(sizeof(struct NoTable));
@@ -64,19 +66,20 @@ void ShowTableList(TableList tableList){
     } while (aux != tableList.start);
 }
 
-Table *GetTableById(TableList tableList, int id){
+//Devolve uma mesa com base no ID
+Table GetTableById(TableList tableList, int id){
     struct NoTable *aux;
     if(tableList.start == NULL) printf("\nEMPTY LIST\n");
     aux = tableList.start;
     do {
         if(aux->table.id == id){
             printf("\nFOUND TABLE\n");
-            return &aux->table;
+            return aux->table;
         }
         aux = aux->next;
     } while (aux != tableList.start);
     printf("\nTABLE NOT EXISTS\n");
-    return &aux->table;
+    return aux->table;
 }
 
 int CreateTable(MYSQL *conn, Table *table, char masterName[100], char title[100]){
@@ -87,8 +90,6 @@ int CreateTable(MYSQL *conn, Table *table, char masterName[100], char title[100]
     char d[20];
     strcpy(d, asctime(localtime(&t)));
     strcpy(table->openDate, d);
-
-    CreateSectionList(&table->sectionList);
 
     strcpy(table->masterName, masterName);
     strcpy(table->title, title);

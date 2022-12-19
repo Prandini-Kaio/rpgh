@@ -1,5 +1,17 @@
 /home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/kaio/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/ninja/linux/ninja -G Ninja -S /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2 -B /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/cmake-build-debug
 -- Using OpenSSL 3.0.2
 -- Configuring done
--- Generating done
--- Build files have been written to: /home/kaio/Documentos/PUC/ll/LAB-AED/rpg2/cmake-build-debug
+CMake Error at CMakeLists.txt:86 (add_executable):
+  Cannot find source file:
+
+    lib/screens/mesasScreen.c
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h
+  .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc
+
+
+CMake Error at CMakeLists.txt:86 (add_executable):
+  No SOURCES given to target: rpg2
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.

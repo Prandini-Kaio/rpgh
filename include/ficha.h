@@ -29,4 +29,14 @@ typedef struct {
 int CreateSheetList(SheetList *sheetList);
 int InsertInSheetList(SheetList *sheetList, Sheet sheet);
 void ShowSheetList(SheetList sheetList);
+
+void CreateSheet(MYSQL *, Sheet *, int);
+
+//DataBase
+
+int CreateSheetDB(MYSQL *);
+int InsertInSheetDB(MYSQL *, Sheet *);
+int SetSheetDB(MYSQL *, Sheet);
+
+int LoadSheets(MYSQL *, SheetList *, int);
 #endif //RPG2_FICHA_H
